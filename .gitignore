@@ -40,6 +40,8 @@
 *.sdf
 *.VC.db
 *.VC.opendb
+*.idea
+*.vsconfig
 
 # Precompiled Assets
 SourceArt/**/*.png
@@ -72,3 +74,4 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
