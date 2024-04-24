@@ -30,7 +30,13 @@
 #define SHADINGMODELID_SINGLELAYERWATER		10
 #define SHADINGMODELID_THIN_TRANSLUCENT		11
 #define SHADINGMODELID_STRATA				12		// Temporary while we convert everything to Strata
-#define SHADINGMODELID_NUM					13
+
+// ------- SnowyFalcon Modify -------
+#define SHADINGMODELID_TOONLIT				13
+#define SHADINGMODELID_NUM					14
+//#define SHADINGMODELID_NUM					13
+// ----------------------------------
+
 #define SHADINGMODELID_MASK					0xF		// 4 bits reserved for ShadingModelID			
 
 // The flags are defined so that 0 value has no effect!
