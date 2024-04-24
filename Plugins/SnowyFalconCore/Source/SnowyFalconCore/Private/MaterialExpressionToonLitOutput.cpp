@@ -45,40 +45,28 @@ UMaterialExpressionToonLitOutput::UMaterialExpressionToonLitOutput(const FObject
 int32 UMaterialExpressionToonLitOutput::Compile(FMaterialCompiler* Compiler, int32 OutputIndex)
 {
 	int32 CodeInput = INDEX_NONE;
+	
+	if (!Enable)
+	{
+		return CodeInput;
+	}
 
 	switch (OutputIndex)
 	{
 	case 0:
-		CodeInput = EnbaleToonLit.IsConnected() ? EnbaleToonLit.Compile(Compiler) : Compiler->StaticBool(false);
+		CodeInput = TestColor.IsConnected() ? TestColor.Compile(Compiler) : Compiler->Constant3(1.0f, 1.0f, 1.0f);
 		break;
-	
+		
+	case OutputNum - 1:
+		CodeInput = Keywords.IsConnected() ? Keywords.Compile(Compiler) : Compiler->Constant(1.0f);
+		break;
+		
 	default:
-		CompilerError(Compiler, TEXT("Input missing!"));
 		break;
 	}
 
 	return Compiler->CustomOutput(this, OutputIndex, CodeInput);
 }
-
-void UMaterialExpressionToonLitOutput::GetCaption(TArray<FString>& OutCaptions) const
-{
-	OutCaptions.Add(FString(TEXT("SnowyFalcon ToonLit Output")));
-}
 #endif
-
-int32 UMaterialExpressionToonLitOutput::GetNumOutputs() const
-{
-	return 1;
-}
-
-FString UMaterialExpressionToonLitOutput::GetFunctionName() const
-{
-	return TEXT("GetSnowyFalconToonLitOutput");
-}
-
-FString UMaterialExpressionToonLitOutput::GetDisplayName() const
-{
-	return TEXT("SnowyFalcon ToonLit"); 
-}
 
 #undef LOCTEXT_NAMESPACE
