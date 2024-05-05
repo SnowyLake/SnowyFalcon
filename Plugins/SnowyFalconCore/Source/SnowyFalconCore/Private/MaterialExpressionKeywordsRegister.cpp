@@ -26,7 +26,7 @@ UMaterialExpressionKeywordsRegister::UMaterialExpressionKeywordsRegister(const F
 	{
 		FText NAME_SnowyFalcon;
 		FConstructorStatics()
-			: NAME_SnowyFalcon(LOCTEXT( "SnowyFalcon Core", "SnowyFalcon Core" ))
+			: NAME_SnowyFalcon(LOCTEXT("SnowyFalcon Core", "SnowyFalcon Core"))
 		{
 		}
 	};

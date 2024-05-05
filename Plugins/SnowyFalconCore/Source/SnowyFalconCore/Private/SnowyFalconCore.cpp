@@ -6,14 +6,14 @@
 
 void FSnowyFalconCoreModule::StartupModule()
 {
-	FString OverrideRealShaderDir = FPaths::Combine(IPluginManager::Get().FindPlugin(TEXT("SnowyFalconCore"))->GetBaseDir(), TEXT("Shaders"));
-	auto& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
+	auto&& OverrideRealShaderDir = FPaths::Combine(IPluginManager::Get().FindPlugin(TEXT("SnowyFalconCore"))->GetBaseDir(), TEXT("Shaders"));
+	auto&& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
 	ShaderSourceDirectoryMappings[EngineDefaultShaderVirtualDir] = OverrideRealShaderDir;
 }
 
 void FSnowyFalconCoreModule::ShutdownModule()
 {
-	auto& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
+	auto&& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
 	ShaderSourceDirectoryMappings[EngineDefaultShaderVirtualDir] = EngineDefaultShaderVirtualDir;
 }
 
