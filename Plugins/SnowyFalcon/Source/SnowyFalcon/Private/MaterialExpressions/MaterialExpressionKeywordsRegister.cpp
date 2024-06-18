@@ -15,7 +15,7 @@
 #include "MaterialGraph/MaterialGraphSchema.h"
 #endif //WITH_EDITOR
 
-#define LOCTEXT_NAMESPACE "MaterialExpressionKeywordsRegister"
+#define LOCTEXT_NAMESPACE "SnowyFalconPlugin"
 
 UMaterialExpressionKeywordsRegister::UMaterialExpressionKeywordsRegister(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -44,6 +44,7 @@ UMaterialExpressionKeywordsRegister::UMaterialExpressionKeywordsRegister(const F
 #endif // WITH_EDITORONLY_DATA
 }
 
+#if WITH_EDITOR
 int32 UMaterialExpressionKeywordsRegister::Compile(FMaterialCompiler* Compiler, int32 OutputIndex)
 {
 	TArray<int32> CompiledInputs;
@@ -134,3 +135,6 @@ void UMaterialExpressionKeywordsRegister::PostEditChangeProperty(FPropertyChange
 	}
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 }
+#endif
+
+#undef LOCTEXT_NAMESPACE

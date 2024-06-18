@@ -15,7 +15,7 @@
 #include "MaterialGraph/MaterialGraphSchema.h"
 #endif //WITH_EDITOR
 
-#define LOCTEXT_NAMESPACE "MaterialExpressionToonLitOutput"
+#define LOCTEXT_NAMESPACE "SnowyFalconPlugin"
 
 UMaterialExpressionToonLitOutput::UMaterialExpressionToonLitOutput(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
