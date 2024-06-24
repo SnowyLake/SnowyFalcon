@@ -1977,6 +1977,13 @@ void FPixelShaderInOut_MainPS(
 
 			EncodeGBufferToMRT(Out, GBuffer, QuantizationBias);
 
+		#if SWYF_SHADINGMODEL_TOON_LIT
+			// Out.MRT[3].rgb = GetSnowyFalconToonLitOutput0(MaterialParameters);
+			// Out.MRT[3].rgb = Scene.CustomRenderSetting.GlobalToonColor;
+			float4 TestTexColor = Texture2DSample(Scene.SceneRenderSetting.TestTexture, Scene.SceneRenderSetting.TestSampler, MaterialParameters.TexCoords[0]);
+			Out.MRT[3].rgb = Scene.SceneRenderSetting.TestColor * TestTexColor.rgb;
+		#endif
+
 			if (GBuffer.ShadingModelID == SHADINGMODELID_UNLIT && !SUBSTRATE_ENABLED) // Do not touch what Substrate outputs
 			{
 				Out.MRT[1] = 0;

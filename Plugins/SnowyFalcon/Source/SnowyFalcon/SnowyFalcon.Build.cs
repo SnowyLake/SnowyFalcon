@@ -1,5 +1,6 @@
 // Some copyright should be here...
 
+using System.IO;
 using UnrealBuildTool;
 
 public class SnowyFalcon : ModuleRules
@@ -7,6 +8,8 @@ public class SnowyFalcon : ModuleRules
 	public SnowyFalcon(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		
+		var EngineDir = Path.GetFullPath(Target.RelativeEnginePath);
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
@@ -18,6 +21,7 @@ public class SnowyFalcon : ModuleRules
 		PrivateIncludePaths.AddRange(
 			new string[] {
 				// ... add other private include paths required here ...
+				Path.Combine(EngineDir, "Source/Runtime/Renderer/Private/"),
 			}
 			);
 			
