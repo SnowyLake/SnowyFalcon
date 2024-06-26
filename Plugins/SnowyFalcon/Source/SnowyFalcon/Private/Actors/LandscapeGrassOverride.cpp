@@ -1,14 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Actors/LandscapeGrassOverride.h"
+
+#include "Utils/SnowyFalconSetting.h"
 
 #include "LandscapeSubsystem.h"
 #include "MaterialCachedData.h"
 
 ALandscapeGrassOverride::ALandscapeGrassOverride()
 {
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::Constructor"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::Constructor"));
 	
 	SceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
 	RootComponent = SceneComponent;
@@ -18,7 +19,7 @@ ALandscapeGrassOverride::ALandscapeGrassOverride()
 
 void ALandscapeGrassOverride::PostLoad()
 {
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::PostLoad"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::PostLoad"));
 	
 	Super::PostLoad();
 	
@@ -28,7 +29,7 @@ void ALandscapeGrassOverride::PostLoad()
 
 void ALandscapeGrassOverride::BeginDestroy()
 {
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::BeginDestroy"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::BeginDestroy"));
 	
 	Super::BeginDestroy();
 
@@ -38,7 +39,7 @@ void ALandscapeGrassOverride::BeginDestroy()
 #if WITH_EDITOR
 void ALandscapeGrassOverride::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::PostEditChangeProperty"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::PostEditChangeProperty"));
 	
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 
@@ -86,7 +87,7 @@ void ALandscapeGrassOverride::EditorOverrideReset()
 
 void ALandscapeGrassOverride::CacheLandscapeGrassTypes()
 {
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::CacheLandscapeGrassTypes"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::CacheLandscapeGrassTypes"));
 	
 	CachedLandscapeProxy = LandscapeProxy;
 	
@@ -110,7 +111,7 @@ void ALandscapeGrassOverride::OverrideLandscapeGrassTypes()
 		return;
 	}
 	
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::OverrideLandscapeGrassTypes"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::OverrideLandscapeGrassTypes"));
 	
 	auto&& GrassTypes = LandscapeProxy->LandscapeMaterial->GetCachedExpressionData().GrassTypes;
 	for (int i = 0; i < GrassTypes.Num(); ++i)
@@ -132,7 +133,7 @@ void ALandscapeGrassOverride::ResetLandscapeGrassTypes()
 		return;
 	}
 	
-	UE_LOG(LogTemp, Log, TEXT("ALandscapeGrassOverride::ResetLandscapeGrassTypes"));
+	UE_LOG(LogSnowyFalcon, Log, TEXT("ALandscapeGrassOverride::ResetLandscapeGrassTypes"));
 
 	auto&& GrassTypes = CachedLandscapeProxy->LandscapeMaterial->GetCachedExpressionData().GrassTypes;
 
