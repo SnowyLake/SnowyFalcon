@@ -1924,9 +1924,9 @@ void FPixelShaderInOut_MainPS(
 			#endif
 
 			EncodeGBufferToMRT(Out, GBuffer, QuantizationBias);
-#if SWYF_SHADINGMODEL_TOON_LIT
-		Out.MRT[3].xyz = GetSnowyFalconToonLitOutput0(MaterialParameters);
-#endif
+		#if SWYF_SHADINGMODEL_TOON_LIT
+				Out.MRT[3].xyz = GetSnowyFalconToonLitOutput0(MaterialParameters);
+		#endif
 
 			if (GBuffer.ShadingModelID == SHADINGMODELID_UNLIT && !STRATA_ENABLED) // Do not touch what strata outputs
 			{

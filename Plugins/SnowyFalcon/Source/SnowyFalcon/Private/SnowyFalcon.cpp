@@ -1,22 +1,20 @@
+// Copyright (c) SnowyLake. All rights reserved.
+
 #include "SnowyFalcon.h"
 
-#include "Interfaces/IPluginManager.h"
+#include "Utils/ShaderUtils.h"
 
 #define LOCTEXT_NAMESPACE "FSnowyFalconModule"
 
 void FSnowyFalconModule::StartupModule()
 {
-	auto&& OverrideRealShaderDir = FPaths::Combine(IPluginManager::Get().FindPlugin(TEXT("SnowyFalcon"))->GetBaseDir(), TEXT("Shaders"));
-	auto&& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
-	ShaderSourceDirectoryMappings[EngineDefaultShaderVirtualDir] = OverrideRealShaderDir;
+	SnowyFalcon::FShaderUtils::ShaderSourceDirectoryRemapping();
 }
 
 void FSnowyFalconModule::ShutdownModule()
 {
-	auto&& ShaderSourceDirectoryMappings = const_cast<TMap<FString, FString>&>(AllShaderSourceDirectoryMappings());
-	ShaderSourceDirectoryMappings[EngineDefaultShaderVirtualDir] = EngineDefaultShaderVirtualDir;
+	SnowyFalcon::FShaderUtils::ShaderSourceDirectoryReset();
 }
-
 
 #undef LOCTEXT_NAMESPACE
 	
