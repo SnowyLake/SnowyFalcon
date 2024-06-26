@@ -1,3 +1,5 @@
+// Copyright (c) SnowyLake. All rights reserved.
+//
 // #include "SceneExtensions/RenderSettingSceneExtension.h"
 //
 // BEGIN_SHADER_PARAMETER_STRUCT(FCustomRenderSettingParameters, SNOWYFALCON_API)

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright (c) SnowyLake. All rights reserved.
 
 #include "MaterialExpressions/MaterialExpressionToonLitOutput.h"
 

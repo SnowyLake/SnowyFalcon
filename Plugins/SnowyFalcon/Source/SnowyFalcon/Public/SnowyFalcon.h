@@ -1,3 +1,5 @@
+// Copyright (c) SnowyLake. All rights reserved.
+
 #pragma once
 
 #include "Modules/ModuleManager.h"
