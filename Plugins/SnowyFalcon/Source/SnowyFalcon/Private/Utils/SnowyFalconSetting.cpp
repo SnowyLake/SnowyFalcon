@@ -1,3 +1,5 @@
+// Copyright (c) SnowyLake. All rights reserved.
+
 #include "Utils/SnowyFalconSetting.h"
 
 #include "Interfaces/IPluginManager.h"

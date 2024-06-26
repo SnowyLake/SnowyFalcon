@@ -1,3 +1,5 @@
+// Copyright (c) SnowyLake. All rights reserved.
+
 #include "Utils/ShaderUtils.h"
 
 #include "Utils/SnowyFalconSetting.h"

@@ -1,3 +1,5 @@
+// Copyright (c) SnowyLake. All rights reserved.
+
 #include "Actors/SceneRenderSetting.h"
 
 #include "SystemTextures.h"
