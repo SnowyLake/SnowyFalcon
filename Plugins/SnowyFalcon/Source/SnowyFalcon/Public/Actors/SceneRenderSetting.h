@@ -7,6 +7,21 @@
 
 #include "SceneRenderSetting.generated.h"
 
+// UB Parameters
+//-------------------------------------------
+USTRUCT()
+struct SNOWYFALCON_API FSceneRenderSettingParameterStruct
+{
+	GENERATED_USTRUCT_BODY()
+
+	FSceneRenderSettingParameterStruct();
+
+	UPROPERTY(EditAnywhere, Category = SceneRenderSetting)
+	FLinearColor TestColor;
+	UPROPERTY(EditAnywhere, Category = SceneRenderSetting)
+	TObjectPtr<UTexture2D> TestTexture;
+};
+
 UCLASS()
 class SNOWYFALCON_API ASceneRenderSetting : public AActor
 {
@@ -14,20 +29,9 @@ class SNOWYFALCON_API ASceneRenderSetting : public AActor
 	
 public:
 	UPROPERTY(EditAnywhere, Category = SceneRenderSetting)
-	FLinearColor TestColor = FLinearColor::White;
-	
-	UPROPERTY(EditAnywhere, Category = SceneRenderSetting)
-	TObjectPtr<UTexture2D> TestTexture = nullptr;
+	FSceneRenderSettingParameterStruct Parameters;
 
-	
-	// UB Parameters
-	//-------------------------------------------
-	struct FParameters
-	{
-		FLinearColor TestColor = FLinearColor::White;
-		UTexture2D* TestTexture = nullptr;
-	};
-	static inline FParameters Parameters{};
+	static inline FSceneRenderSettingParameterStruct UBParameters{};
 
 public:
 	ASceneRenderSetting();

@@ -33,4 +33,16 @@ void FShaderUtils::ShaderSourceDirectoryReset()
 		ShaderSourceDirectoryMappings[EngineShaderVirtualDir] = EngineShaderVirtualDir;
 	}
 }
+
+FRHITexture* FShaderUtils::GetRHITextureOrDefault(TObjectPtr<UTexture2D> Texture, TRefCountPtr<IPooledRenderTarget> Default)
+{
+	if (Texture != nullptr)
+	{
+		return Texture->GetResource()->GetTexture2DRHI();
+	}
+	else
+	{
+		return Default->GetRHI();
+	}
+}
 }
